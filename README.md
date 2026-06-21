@@ -2,6 +2,16 @@
 
 A modern, responsive Smart Parking System frontend built with React + Tailwind CSS.
 
+## 🏗️ Architecture
+
+![Smart Parking Architecture](src/assets/smart_parking_architecture_universal.png)
+
+The backend uses a serverless AWS architecture:
+- **API Gateway** routes requests to three Lambda functions (`CheckAvailability`, `ProcessPayment`, `BookTicket`)
+- **DynamoDB** stores `ParkingSlots` and `Tickets` tables
+- **SNS → SQS** handles async booking confirmation events
+- A shared **IAM role** governs Lambda permissions across all three functions
+
 ---
 
 ## 🚀 Quick Start
